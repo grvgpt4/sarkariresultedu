@@ -44,6 +44,21 @@
 		content: "";
 	}
 
+	.sre-entry-content a[href$=".pdf"],
+	.sre-entry-content a.pdf-link,
+	.sre-entry-content a.download-pdf {
+		background: transparent !important;
+		color: #000 !important;
+		padding: 0 !important;
+		border: 0 !important;
+	}
+
+	.sre-entry-content a[href$=".pdf"]::before,
+	.sre-entry-content a.pdf-link::before,
+	.sre-entry-content a.download-pdf::before {
+		content: none !important;
+	}
+
 	.sre-table-wrap {
 		overflow: visible;
 		border: 0;
