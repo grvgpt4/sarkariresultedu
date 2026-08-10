@@ -1,0 +1,55 @@
+/**
+ * Print styles — articles only.
+ */
+
+@media print {
+	.sre-header,
+	.sre-footer,
+	.sre-sidebar,
+	.sre-ad,
+	.sre-nav,
+	.sre-search-panel,
+	.sre-back-top,
+	.sre-header__actions,
+	.sre-toc__toggle,
+	.sre-related,
+	.sre-comments,
+	.sre-trust-line {
+		display: none !important;
+	}
+
+	body {
+		background: #fff;
+		color: #000;
+		font-size: 12pt;
+	}
+
+	.sre-layout {
+		display: block;
+	}
+
+	.sre-article__title {
+		color: #000;
+		font-size: 18pt;
+	}
+
+	.sre-entry-content a[href]::after {
+		content: " (" attr(href) ")";
+		font-size: 9pt;
+		word-break: break-all;
+	}
+
+	.sre-entry-content a[href^="#"]::after,
+	.sre-entry-content a[href^="javascript"]::after {
+		content: "";
+	}
+
+	.sre-table-wrap {
+		overflow: visible;
+		border: 0;
+	}
+
+	.sre-entry-content table {
+		min-width: 0;
+	}
+}
