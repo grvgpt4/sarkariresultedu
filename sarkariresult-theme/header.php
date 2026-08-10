@@ -1,6 +1,6 @@
 <?php
 /**
- * Header — Next.js / modern product style.
+ * Header — floating modern shell.
  *
  * @package SarkariResult
  */
@@ -21,46 +21,54 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <a class="sre-skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'sarkariresult' ); ?></a>
 
+<div class="sre-atmosphere" aria-hidden="true">
+	<span class="sre-orb sre-orb--a"></span>
+	<span class="sre-orb sre-orb--b"></span>
+	<span class="sre-orb sre-orb--c"></span>
+</div>
+
 <header class="sre-header" role="banner">
-	<div class="sre-header__bar sre-container">
-		<div class="sre-header__left">
-			<?php sre_site_brand(); ?>
-		</div>
+	<div class="sre-header__shell sre-container">
+		<div class="sre-header__chip">
+			<div class="sre-header__left">
+				<?php sre_site_brand(); ?>
+			</div>
 
-		<nav id="sre-primary-nav" class="sre-nav" data-sre-nav aria-label="<?php esc_attr_e( 'Primary', 'sarkariresult' ); ?>">
-			<?php
-			if ( has_nav_menu( 'primary' ) ) {
-				wp_nav_menu(
-					array(
-						'theme_location' => 'primary',
-						'container'      => false,
-						'menu_class'     => 'sre-nav__list',
-						'fallback_cb'    => false,
-						'depth'          => 2,
-					)
-				);
-			} else {
-				echo '<ul class="sre-nav__list sre-nav__list--fallback">';
-				echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'sarkariresult' ) . '</a></li>';
-				$fallback_slugs = array( 'recruitment', 'results', 'admit-card', 'answer-key', 'syllabus', 'time-table', 'board-results' );
-				foreach ( $fallback_slugs as $slug ) {
-					$term = sre_get_category_by_slug( $slug );
-					if ( $term ) {
-						echo '<li><a href="' . esc_url( get_category_link( $term->term_id ) ) . '">' . esc_html( $term->name ) . '</a></li>';
+			<nav id="sre-primary-nav" class="sre-nav" data-sre-nav aria-label="<?php esc_attr_e( 'Primary', 'sarkariresult' ); ?>">
+				<?php
+				if ( has_nav_menu( 'primary' ) ) {
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'container'      => false,
+							'menu_class'     => 'sre-nav__list',
+							'fallback_cb'    => false,
+							'depth'          => 2,
+						)
+					);
+				} else {
+					echo '<ul class="sre-nav__list sre-nav__list--fallback">';
+					echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'sarkariresult' ) . '</a></li>';
+					$fallback_slugs = array( 'recruitment', 'results', 'admit-card', 'answer-key', 'syllabus', 'board-results' );
+					foreach ( $fallback_slugs as $slug ) {
+						$term = sre_get_category_by_slug( $slug );
+						if ( $term ) {
+							echo '<li><a href="' . esc_url( get_category_link( $term->term_id ) ) . '">' . esc_html( $term->name ) . '</a></li>';
+						}
 					}
+					echo '</ul>';
 				}
-				echo '</ul>';
-			}
-			?>
-		</nav>
+				?>
+			</nav>
 
-		<div class="sre-header__right">
-			<button type="button" class="sre-icon-btn sre-search-toggle" data-sre-search-toggle aria-expanded="false" aria-controls="sre-search-panel" aria-label="<?php esc_attr_e( 'Open search', 'sarkariresult' ); ?>">
-				<?php echo sre_icon( 'search' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			</button>
-			<button type="button" class="sre-icon-btn sre-menu-toggle" data-sre-menu-toggle aria-expanded="false" aria-controls="sre-primary-nav" aria-label="<?php esc_attr_e( 'Open menu', 'sarkariresult' ); ?>">
-				<?php echo sre_icon( 'menu' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			</button>
+			<div class="sre-header__right">
+				<button type="button" class="sre-icon-btn sre-search-toggle" data-sre-search-toggle aria-expanded="false" aria-controls="sre-search-panel" aria-label="<?php esc_attr_e( 'Open search', 'sarkariresult' ); ?>">
+					<?php echo sre_icon( 'search' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</button>
+				<button type="button" class="sre-icon-btn sre-menu-toggle" data-sre-menu-toggle aria-expanded="false" aria-controls="sre-primary-nav" aria-label="<?php esc_attr_e( 'Open menu', 'sarkariresult' ); ?>">
+					<?php echo sre_icon( 'menu' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</button>
+			</div>
 		</div>
 	</div>
 

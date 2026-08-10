@@ -3,7 +3,7 @@ Contributors: sarkariresult
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,11 +22,14 @@ Production theme for sarkariresult.edu.pl. Safe to activate on existing content 
 
 == Changelog ==
 
+= 3.0.0 =
+* Signal Desk redesign: atmospheric orbs, floating glass header, Syne display type, bento latest feed
+
 = 2.0.0 =
-* Full visual redesign: Next.js-fresh modern UI (Outfit, glass header, airy layout)
+* Next.js-fresh modern UI
 
 = 1.1.0 =
-* Visual redesign: editorial masthead, featured latest rail, cooler palette
+* Editorial redesign
 
 = 1.0.0 =
 * Initial production release

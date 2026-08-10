@@ -1,6 +1,6 @@
 <?php
 /**
- * Latest updates — modern featured grid.
+ * Latest updates — asymmetric bento board.
  *
  * @package SarkariResult
  * @var array $args Section args.
@@ -15,7 +15,7 @@ $count = isset( $args['count'] ) ? absint( $args['count'] ) : 6;
 
 $query = new WP_Query(
 	array(
-		'posts_per_page'         => max( 4, $count ),
+		'posts_per_page'         => max( 5, $count ),
 		'ignore_sticky_posts'    => true,
 		'no_found_rows'          => true,
 		'update_post_meta_cache' => true,
@@ -29,29 +29,31 @@ if ( ! $query->have_posts() ) {
 
 $posts = $query->posts;
 $lead  = array_shift( $posts );
+$side  = array_slice( $posts, 0, 2 );
+$rest  = array_slice( $posts, 2 );
 ?>
 <section class="sre-section sre-section--latest" aria-labelledby="sre-latest-heading">
 	<div class="sre-section__head">
 		<div>
-			<p class="sre-section__eyebrow"><?php esc_html_e( 'Fresh today', 'sarkariresult' ); ?></p>
+			<p class="sre-section__eyebrow"><?php esc_html_e( 'Signal feed', 'sarkariresult' ); ?></p>
 			<h2 id="sre-latest-heading" class="sre-section__title"><?php echo esc_html( $title ); ?></h2>
 		</div>
 	</div>
 
-	<div class="sre-latest">
+	<div class="sre-bento">
 		<?php
 		if ( $lead ) {
 			$GLOBALS['post'] = $lead; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 			setup_postdata( $lead );
 			?>
-			<article <?php post_class( 'sre-lead' ); ?>>
+			<article <?php post_class( 'sre-bento__lead' ); ?>>
 				<?php if ( has_post_thumbnail() ) : ?>
-					<a class="sre-lead__media" href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
+					<a class="sre-bento__media" href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
 						<?php
 						the_post_thumbnail(
 							'large',
 							array(
-								'class'         => 'sre-lead__img',
+								'class'         => 'sre-bento__img',
 								'loading'       => 'eager',
 								'fetchpriority' => 'high',
 							)
@@ -59,19 +61,17 @@ $lead  = array_shift( $posts );
 						?>
 					</a>
 				<?php else : ?>
-					<a class="sre-lead__media sre-lead__media--empty" href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true"></a>
+					<a class="sre-bento__media sre-bento__media--empty" href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true"></a>
 				<?php endif; ?>
-				<div class="sre-lead__body">
-					<div class="sre-lead__meta">
+				<div class="sre-bento__body">
+					<div class="sre-bento__meta">
 						<?php sre_category_badge(); ?>
 						<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
 					</div>
-					<h3 class="sre-lead__title">
-						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-					</h3>
-					<p class="sre-lead__excerpt"><?php echo esc_html( sre_trim_words( get_the_excerpt(), 30 ) ); ?></p>
+					<h3 class="sre-bento__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<p class="sre-bento__excerpt"><?php echo esc_html( sre_trim_words( get_the_excerpt(), 28 ) ); ?></p>
 					<a class="sre-textlink" href="<?php the_permalink(); ?>">
-						<?php esc_html_e( 'Read update', 'sarkariresult' ); ?>
+						<?php esc_html_e( 'Open update', 'sarkariresult' ); ?>
 						<?php echo sre_icon( 'arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</a>
 				</div>
@@ -80,25 +80,40 @@ $lead  = array_shift( $posts );
 		}
 		?>
 
-		<div class="sre-latest__rail" role="list">
+		<div class="sre-bento__stack">
 			<?php
-			foreach ( $posts as $item ) {
+			foreach ( $side as $item ) {
 				$GLOBALS['post'] = $item; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 				setup_postdata( $item );
 				?>
-				<article <?php post_class( 'sre-rail-item' ); ?> role="listitem">
-					<div class="sre-rail-item__meta">
+				<article <?php post_class( 'sre-bento__tile' ); ?>>
+					<div class="sre-bento__meta">
 						<?php sre_category_badge(); ?>
 						<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
 					</div>
-					<h3 class="sre-rail-item__title">
-						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-					</h3>
+					<h3 class="sre-bento__title sre-bento__title--sm"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 				</article>
 				<?php
 			}
-			wp_reset_postdata();
 			?>
 		</div>
+
+		<?php
+		foreach ( $rest as $i => $item ) {
+			$GLOBALS['post'] = $item; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+			setup_postdata( $item );
+			?>
+			<article <?php post_class( 'sre-bento__wide' ); ?>>
+				<div class="sre-bento__meta">
+					<?php sre_category_badge(); ?>
+					<time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
+				</div>
+				<h3 class="sre-bento__title sre-bento__title--sm"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+				<p class="sre-bento__excerpt"><?php echo esc_html( sre_trim_words( get_the_excerpt(), 18 ) ); ?></p>
+			</article>
+			<?php
+		}
+		wp_reset_postdata();
+		?>
 	</div>
 </section>

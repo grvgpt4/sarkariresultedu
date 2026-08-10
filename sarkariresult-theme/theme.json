@@ -5,31 +5,36 @@
 		"appearanceTools": true,
 		"layout": {
 			"contentSize": "720px",
-			"wideSize": "1120px"
+			"wideSize": "1180px"
 		},
 		"color": {
 			"palette": [
-				{ "slug": "primary", "color": "#09090b", "name": "Primary" },
-				{ "slug": "secondary", "color": "#2563eb", "name": "Accent" },
-				{ "slug": "background", "color": "#fafafa", "name": "Background" },
-				{ "slug": "surface", "color": "#f4f4f5", "name": "Surface" },
-				{ "slug": "text", "color": "#09090b", "name": "Text" },
-				{ "slug": "muted", "color": "#71717a", "name": "Muted" }
+				{ "slug": "ink", "color": "#07111f", "name": "Ink" },
+				{ "slug": "mint", "color": "#00c2a8", "name": "Mint" },
+				{ "slug": "electric", "color": "#2f6bff", "name": "Electric" },
+				{ "slug": "hot", "color": "#ff4d6d", "name": "Hot" },
+				{ "slug": "background", "color": "#f3f7fb", "name": "Background" },
+				{ "slug": "text", "color": "#07111f", "name": "Text" }
 			]
 		},
 		"typography": {
 			"fontFamilies": [
 				{
-					"fontFamily": "\"Outfit\", \"Segoe UI\", sans-serif",
-					"name": "Outfit",
-					"slug": "outfit"
+					"fontFamily": "\"Syne\", \"Manrope\", sans-serif",
+					"name": "Syne",
+					"slug": "syne"
+				},
+				{
+					"fontFamily": "\"Manrope\", \"Segoe UI\", sans-serif",
+					"name": "Manrope",
+					"slug": "manrope"
 				}
 			]
 		}
 	},
 	"styles": {
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--outfit)"
+			"fontFamily": "var(--wp--preset--font-family--manrope)"
 		},
 		"color": {
 			"background": "var(--wp--preset--color--background)",
@@ -38,7 +43,7 @@
 		"elements": {
 			"link": {
 				"color": {
-					"text": "#2563eb"
+					"text": "#2f6bff"
 				}
 			}
 		}
