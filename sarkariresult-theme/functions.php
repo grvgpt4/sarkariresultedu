@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SRE_VERSION', '3.1.1' );
+define( 'SRE_VERSION', '3.1.2' );
 define( 'SRE_DIR', get_template_directory() );
 define( 'SRE_URI', get_template_directory_uri() );
 

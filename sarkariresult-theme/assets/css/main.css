@@ -22,7 +22,7 @@
 	--sre-shadow-lg: 0 24px 60px rgba(7, 17, 31, 0.14);
 	--sre-container: 1180px;
 	--sre-font: "DM Sans", "Segoe UI", sans-serif;
-	--sre-display: "Outfit", "DM Sans", sans-serif;
+	--sre-display: "Poppins", "DM Sans", sans-serif;
 	--sre-transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -51,8 +51,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 h1, h2, h3, h4, h5, h6 {
 	font-family: var(--sre-display);
 	margin: 0 0 0.5em;
-	line-height: 1.12;
-	letter-spacing: -0.025em;
+	line-height: 1.18;
+	letter-spacing: -0.015em;
 	font-weight: 700;
 	color: var(--sre-ink);
 }
@@ -161,8 +161,8 @@ table { border-collapse: collapse; width: 100%; }
 
 .sre-brand {
 	display: inline-flex; align-items: center;
-	font-family: var(--sre-display); font-weight: 800; font-size: 1.15rem;
-	letter-spacing: -0.03em; color: var(--sre-ink);
+	font-family: var(--sre-display); font-weight: 700; font-size: 1.1rem;
+	letter-spacing: -0.01em; color: var(--sre-ink);
 }
 .sre-brand__logo { max-height: 30px; width: auto; }
 .sre-brand__text {
@@ -244,8 +244,8 @@ table { border-collapse: collapse; width: 100%; }
 }
 .sre-intro__title {
 	margin: 0 0 0.8rem;
-	font-size: clamp(2.4rem, 7vw, 4.2rem);
-	letter-spacing: -0.035em; line-height: 1.02;
+	font-size: clamp(2.2rem, 6.5vw, 3.75rem);
+	letter-spacing: -0.02em; line-height: 1.1;
 }
 .sre-intro__text {
 	margin: 0 0 1.35rem; color: var(--sre-muted);
@@ -266,8 +266,8 @@ table { border-collapse: collapse; width: 100%; }
 }
 .sre-intro__mark {
 	position: relative; z-index: 1;
-	font-family: var(--sre-display); font-size: 4.5rem; font-weight: 800;
-	letter-spacing: -0.04em;
+	font-family: var(--sre-display); font-size: 4.2rem; font-weight: 800;
+	letter-spacing: -0.02em;
 	background: linear-gradient(135deg, #2f6bff, #00c2a8);
 	-webkit-background-clip: text; background-clip: text; color: transparent;
 }

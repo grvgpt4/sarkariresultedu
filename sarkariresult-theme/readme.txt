@@ -3,7 +3,7 @@ Contributors: sarkariresult
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 3.1.1
+Stable tag: 3.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,9 @@ Production theme for sarkariresult.edu.pl. Safe to activate on existing content 
 4. Configure options under Appearance → Customize → Sarkari Result Theme
 
 == Changelog ==
+
+= 3.1.2 =
+* Headings: switch display font to Poppins for softer, clearer titles
 
 = 3.1.1 =
 * Typography: switch to Outfit + DM Sans for clearer, more readable type

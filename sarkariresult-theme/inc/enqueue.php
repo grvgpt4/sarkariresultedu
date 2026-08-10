@@ -18,10 +18,10 @@ function sre_enqueue_assets() {
 	$css_ver  = file_exists( $css_path ) ? (string) filemtime( $css_path ) : SRE_VERSION;
 	$js_ver   = file_exists( $js_path ) ? (string) filemtime( $js_path ) : SRE_VERSION;
 
-	// Clean product pairing: Outfit (display) + DM Sans (UI/body).
+	// Display: Poppins (clear headings). Body/UI: DM Sans.
 	wp_enqueue_style(
 		'sre-fonts',
-		'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700;800&display=swap',
+		'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Poppins:wght@500;600;700;800&display=swap',
 		array(),
 		null
 	);
