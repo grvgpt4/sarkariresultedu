@@ -18,10 +18,18 @@ function sre_enqueue_assets() {
 	$css_ver  = file_exists( $css_path ) ? (string) filemtime( $css_path ) : SRE_VERSION;
 	$js_ver   = file_exists( $js_path ) ? (string) filemtime( $js_path ) : SRE_VERSION;
 
+	// One purposeful family, limited weights, display=swap.
+	wp_enqueue_style(
+		'sre-fonts',
+		'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap',
+		array(),
+		null
+	);
+
 	wp_enqueue_style(
 		'sre-main',
 		SRE_URI . '/assets/css/main.css',
-		array(),
+		array( 'sre-fonts' ),
 		$css_ver
 	);
 
@@ -34,18 +42,18 @@ function sre_enqueue_assets() {
 	);
 
 	// Dynamic CSS variables from Customizer.
-	$primary   = sanitize_hex_color( sre_get_mod( 'sre_color_primary', '#0b3d5c' ) );
-	$secondary = sanitize_hex_color( sre_get_mod( 'sre_color_secondary', '#c0392b' ) );
-	$accent    = sanitize_hex_color( sre_get_mod( 'sre_color_accent', '#e67e22' ) );
+	$primary   = sanitize_hex_color( sre_get_mod( 'sre_color_primary', '#061a2e' ) );
+	$secondary = sanitize_hex_color( sre_get_mod( 'sre_color_secondary', '#dc2626' ) );
+	$accent    = sanitize_hex_color( sre_get_mod( 'sre_color_accent', '#0891b2' ) );
 
 	if ( ! $primary ) {
-		$primary = '#0b3d5c';
+		$primary = '#061a2e';
 	}
 	if ( ! $secondary ) {
-		$secondary = '#c0392b';
+		$secondary = '#dc2626';
 	}
 	if ( ! $accent ) {
-		$accent = '#e67e22';
+		$accent = '#0891b2';
 	}
 
 	$custom_css = ':root{--sre-primary:' . $primary . ';--sre-secondary:' . $secondary . ';--sre-accent:' . $accent . ';}';
@@ -82,6 +90,25 @@ function sre_enqueue_assets() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'sre_enqueue_assets' );
+
+/**
+ * Preconnect for Google Fonts.
+ *
+ * @param array  $urls          URLs.
+ * @param string $relation_type Relation.
+ * @return array
+ */
+function sre_font_resource_hints( $urls, $relation_type ) {
+	if ( 'preconnect' === $relation_type ) {
+		$urls[] = 'https://fonts.googleapis.com';
+		$urls[] = array(
+			'href'        => 'https://fonts.gstatic.com',
+			'crossorigin' => 'anonymous',
+		);
+	}
+	return $urls;
+}
+add_filter( 'wp_resource_hints', 'sre_font_resource_hints', 10, 2 );
 
 /**
  * Remove unnecessary emoji scripts for performance.

@@ -84,9 +84,9 @@ function sre_customize_register( $wp_customize ) {
 	);
 
 	foreach ( array(
-		'sre_color_primary'   => array( '#0b3d5c', __( 'Primary color', 'sarkariresult' ) ),
-		'sre_color_secondary' => array( '#c0392b', __( 'Secondary / accent red', 'sarkariresult' ) ),
-		'sre_color_accent'    => array( '#e67e22', __( 'Accent orange', 'sarkariresult' ) ),
+		'sre_color_primary'   => array( '#061a2e', __( 'Primary color', 'sarkariresult' ) ),
+		'sre_color_secondary' => array( '#dc2626', __( 'Secondary / accent red', 'sarkariresult' ) ),
+		'sre_color_accent'    => array( '#0891b2', __( 'Accent teal', 'sarkariresult' ) ),
 	) as $id => $data ) {
 		$wp_customize->add_setting(
 			$id,

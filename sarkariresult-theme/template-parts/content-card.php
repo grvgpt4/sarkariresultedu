@@ -23,6 +23,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			);
 			?>
 		</a>
+	<?php else : ?>
+		<a class="sre-card__media sre-card__media--empty" href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
+			<span class="sre-card__placeholder"><?php echo esc_html( function_exists( 'mb_substr' ) ? mb_substr( get_the_title(), 0, 1 ) : substr( get_the_title(), 0, 1 ) ); ?></span>
+		</a>
 	<?php endif; ?>
 
 	<div class="sre-card__body">
@@ -33,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<h2 class="sre-card__title">
 			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 		</h2>
-		<p class="sre-card__excerpt"><?php echo esc_html( sre_trim_words( get_the_excerpt(), 20 ) ); ?></p>
+		<p class="sre-card__excerpt"><?php echo esc_html( sre_trim_words( get_the_excerpt(), 18 ) ); ?></p>
 		<div class="sre-card__meta-bottom">
 			<span class="sre-card__author"><?php the_author(); ?></span>
 			<?php if ( get_the_modified_time( 'U' ) > get_the_time( 'U' ) + DAY_IN_SECONDS ) : ?>
