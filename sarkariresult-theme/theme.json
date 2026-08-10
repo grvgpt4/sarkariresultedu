@@ -4,32 +4,32 @@
 	"settings": {
 		"appearanceTools": true,
 		"layout": {
-			"contentSize": "760px",
-			"wideSize": "1180px"
+			"contentSize": "720px",
+			"wideSize": "1120px"
 		},
 		"color": {
 			"palette": [
-				{ "slug": "primary", "color": "#061a2e", "name": "Primary" },
-				{ "slug": "secondary", "color": "#dc2626", "name": "Secondary" },
-				{ "slug": "accent", "color": "#0891b2", "name": "Accent" },
-				{ "slug": "background", "color": "#eef3f8", "name": "Background" },
-				{ "slug": "surface", "color": "#e8eef5", "name": "Surface" },
-				{ "slug": "text", "color": "#15202b", "name": "Text" }
+				{ "slug": "primary", "color": "#09090b", "name": "Primary" },
+				{ "slug": "secondary", "color": "#2563eb", "name": "Accent" },
+				{ "slug": "background", "color": "#fafafa", "name": "Background" },
+				{ "slug": "surface", "color": "#f4f4f5", "name": "Surface" },
+				{ "slug": "text", "color": "#09090b", "name": "Text" },
+				{ "slug": "muted", "color": "#71717a", "name": "Muted" }
 			]
 		},
 		"typography": {
 			"fontFamilies": [
 				{
-					"fontFamily": "\"Plus Jakarta Sans\", \"Segoe UI\", sans-serif",
-					"name": "Plus Jakarta Sans",
-					"slug": "plus-jakarta"
+					"fontFamily": "\"Outfit\", \"Segoe UI\", sans-serif",
+					"name": "Outfit",
+					"slug": "outfit"
 				}
 			]
 		}
 	},
 	"styles": {
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--plus-jakarta)"
+			"fontFamily": "var(--wp--preset--font-family--outfit)"
 		},
 		"color": {
 			"background": "var(--wp--preset--color--background)",
@@ -38,7 +38,7 @@
 		"elements": {
 			"link": {
 				"color": {
-					"text": "#0369a1"
+					"text": "#2563eb"
 				}
 			}
 		}

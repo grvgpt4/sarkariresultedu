@@ -3,7 +3,7 @@ Contributors: sarkariresult
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,8 +22,11 @@ Production theme for sarkariresult.edu.pl. Safe to activate on existing content 
 
 == Changelog ==
 
+= 2.0.0 =
+* Full visual redesign: Next.js-fresh modern UI (Outfit, glass header, airy layout)
+
 = 1.1.0 =
-* Visual redesign: editorial masthead, featured latest rail, cooler palette, Plus Jakarta Sans
+* Visual redesign: editorial masthead, featured latest rail, cooler palette
 
 = 1.0.0 =
 * Initial production release

@@ -1,6 +1,6 @@
 <?php
 /**
- * Latest updates — featured lead + supporting list.
+ * Latest updates — modern featured grid.
  *
  * @package SarkariResult
  * @var array $args Section args.
@@ -32,8 +32,10 @@ $lead  = array_shift( $posts );
 ?>
 <section class="sre-section sre-section--latest" aria-labelledby="sre-latest-heading">
 	<div class="sre-section__head">
-		<h2 id="sre-latest-heading" class="sre-section__title"><?php echo esc_html( $title ); ?></h2>
-		<span class="sre-section__rule" aria-hidden="true"></span>
+		<div>
+			<p class="sre-section__eyebrow"><?php esc_html_e( 'Fresh today', 'sarkariresult' ); ?></p>
+			<h2 id="sre-latest-heading" class="sre-section__title"><?php echo esc_html( $title ); ?></h2>
+		</div>
 	</div>
 
 	<div class="sre-latest">
@@ -49,13 +51,15 @@ $lead  = array_shift( $posts );
 						the_post_thumbnail(
 							'large',
 							array(
-								'class'    => 'sre-lead__img',
-								'loading'  => 'eager',
+								'class'         => 'sre-lead__img',
+								'loading'       => 'eager',
 								'fetchpriority' => 'high',
 							)
 						);
 						?>
 					</a>
+				<?php else : ?>
+					<a class="sre-lead__media sre-lead__media--empty" href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true"></a>
 				<?php endif; ?>
 				<div class="sre-lead__body">
 					<div class="sre-lead__meta">
@@ -65,8 +69,8 @@ $lead  = array_shift( $posts );
 					<h3 class="sre-lead__title">
 						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 					</h3>
-					<p class="sre-lead__excerpt"><?php echo esc_html( sre_trim_words( get_the_excerpt(), 28 ) ); ?></p>
-					<a class="sre-readmore" href="<?php the_permalink(); ?>">
+					<p class="sre-lead__excerpt"><?php echo esc_html( sre_trim_words( get_the_excerpt(), 30 ) ); ?></p>
+					<a class="sre-textlink" href="<?php the_permalink(); ?>">
 						<?php esc_html_e( 'Read update', 'sarkariresult' ); ?>
 						<?php echo sre_icon( 'arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</a>

@@ -21,7 +21,7 @@ function sre_enqueue_assets() {
 	// One purposeful family, limited weights, display=swap.
 	wp_enqueue_style(
 		'sre-fonts',
-		'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap',
+		'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap',
 		array(),
 		null
 	);
@@ -42,18 +42,18 @@ function sre_enqueue_assets() {
 	);
 
 	// Dynamic CSS variables from Customizer.
-	$primary   = sanitize_hex_color( sre_get_mod( 'sre_color_primary', '#061a2e' ) );
-	$secondary = sanitize_hex_color( sre_get_mod( 'sre_color_secondary', '#dc2626' ) );
-	$accent    = sanitize_hex_color( sre_get_mod( 'sre_color_accent', '#0891b2' ) );
+	$primary   = sanitize_hex_color( sre_get_mod( 'sre_color_primary', '#09090b' ) );
+	$secondary = sanitize_hex_color( sre_get_mod( 'sre_color_secondary', '#2563eb' ) );
+	$accent    = sanitize_hex_color( sre_get_mod( 'sre_color_accent', '#2563eb' ) );
 
 	if ( ! $primary ) {
-		$primary = '#061a2e';
+		$primary = '#09090b';
 	}
 	if ( ! $secondary ) {
-		$secondary = '#dc2626';
+		$secondary = '#2563eb';
 	}
 	if ( ! $accent ) {
-		$accent = '#0891b2';
+		$accent = '#2563eb';
 	}
 
 	$custom_css = ':root{--sre-primary:' . $primary . ';--sre-secondary:' . $secondary . ';--sre-accent:' . $accent . ';}';
