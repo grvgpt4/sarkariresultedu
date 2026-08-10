@@ -35,6 +35,7 @@ $heading_id = 'sre-section-' . $slug;
 		<h2 id="<?php echo esc_attr( $heading_id ); ?>" class="sre-section__title">
 			<a href="<?php echo esc_url( get_category_link( $term->term_id ) ); ?>"><?php echo esc_html( $title ? $title : $term->name ); ?></a>
 		</h2>
+		<span class="sre-section__rule" aria-hidden="true"></span>
 		<a class="sre-section__more" href="<?php echo esc_url( get_category_link( $term->term_id ) ); ?>">
 			<?php esc_html_e( 'View all', 'sarkariresult' ); ?>
 			<?php echo sre_icon( 'arrow' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
