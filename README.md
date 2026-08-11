@@ -1,27 +1,29 @@
-# sarkariresult.edu.pl — Premium Portal
+# Sarkari Result Premium (WordPress Theme)
 
-Premium static homepage for **https://sarkariresult.edu.pl/** — same classic Sarkari Result structure, elevated with a refined crimson/navy palette, modern typography, and a custom footer.
+Premium WordPress theme for **https://sarkariresult.edu.pl/**
 
-## Preview
+## Install
 
-Open `index.html` in a browser, or serve locally:
+1. Download [`sarkariresult-theme.zip`](./sarkariresult-theme.zip)
+2. WordPress Admin → **Appearance → Themes → Add New → Upload Theme**
+3. Upload the zip and **Activate**
 
-```bash
-python3 -m http.server 8080
-```
+The package includes `sarkariresult-theme/style.css` (required by WordPress).
 
-Then visit `http://localhost:8080`.
-
-## Structure
+## What’s inside
 
 ```
-index.html
-assets/css/main.css
-assets/js/main.js
+sarkariresult-theme/
+  style.css          ← WordPress theme header
+  functions.php
+  header.php
+  footer.php
+  front-page.php     ← premium homepage layout
+  index.php / page.php / single.php / 404.php
+  assets/css/main.css
+  assets/js/main.js
 ```
 
 ## Design
 
-- Brand: deep crimson (`#9b1c2e`) with navy navigation
-- Fonts: Syne (display) + DM Sans (body)
-- Sections: featured tiles, Results / Admit Cards / Jobs, Answer Keys / Cut Offs / Admission, RRB grid, state-wise jobs, qualification filters, info blocks, About + FAQs, premium footer
+Deep crimson + navy, Syne + DM Sans, classic Sarkari Result portal structure with a custom premium footer.
